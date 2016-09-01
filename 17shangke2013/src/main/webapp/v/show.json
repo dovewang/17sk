@@ -1,0 +1,26 @@
+{
+	"title": {
+		"info": "请您输入标题",
+		"required": "请您输入标题",
+		"maxlength": 50
+	},
+	"cover": {
+		"info": "请您上传封面",
+		"required": "请您上传封面"
+	},
+	"intro": {
+		"info": "请输入简介",
+		"required": "简介不能空",
+		"validators": {
+			"size": {
+				"max": 1000,
+				"chinese":false,
+				"event":false,
+				"message": "您输入的字数超过了限制"
+			}
+		}
+	},
+	"category": {
+		"required": "所属类别不能为空"
+	}
+}

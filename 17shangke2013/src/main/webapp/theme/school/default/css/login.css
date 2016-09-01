@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+#login_wrap{margin:0 auto;height:800px;background:url(../images/login/bg_bottom.jpg) bottom center no-repeat;}
+#login_con{background:url(../images/login/bg_top.jpg) top center repeat-x;}
+#loginbox{margin:0 auto;padding:15px 54px 0 38px;width:473px;background: url(../images/login/bg_login.png) 0 -20px no-repeat;}
+
+#logobox{margin:0 auto;padding:130px 54px 0 38px;width:473px;}
+#loginlogo{float:left;width:170px;height:61px;background:url(../images/logo.png) 0 12px no-repeat;font-size:0;overflow:hidden; margin:0 0 10px 140px; display:inline}
+#loginlogo_ex{float:left;width:98px;height:58px;margin:0 0 0 6px; display:inline;background:url(../images/bg_png.png) 0 -40px no-repeat;}
+
+#inputtext_box{width:458px;background:url(../images/login/bg_login.gif) no-repeat;padding-top:5px; margin-left:15px; position: relative}
+#inputlist_box{width:458px;background:url(../images/login/bg_loginmianmin.gif) repeat-y;padding:30px 0 15px 0;}
+#inputlist_box ul li{float:left;width:458px; margin:11px 0; display:inline}
+#inputlist_box ul li label{float:left;width:70px;padding-left:64px;line-height:30px;font-size:14px;}
+#inputlist_box ul li .s1{float:left;width:260px;}
+#inputlist_box ul li .s2{float:left;width:170px;}
+#inputlist_box ul li .s1 input,#inputlist_box ul li .s2 input{font-size:12px;color:#666;}
+#inputlist_box ul li .s1 input{width:250px;}
+#inputlist_box ul li .s2 input{width:160px;}
+#inputlist_box ul li .yzm{float:left; margin-left:5px; display:inline;}
+#inputlist_box ul li .yzm img{margin-bottom:5px;}
+
+.warn_text{width:260px; position:absolute; top:18px; left:135px;color:#f60; text-align:center}
+
+#inputtext_bottom{width:458px;height:5px;font-size:0; overflow:hidden;background:url(../images/login/bg_login.gif) 0 -5px no-repeat;}
+
+#login_function{width:290px; margin:10px 0 0 128px;font-size:11px;_margin-top:6px;}
+#login_function label{float:left;color:#666;padding-top:2px; height:16px; line-height:16px; vertical-align:middle;}
+.forget_pw{float:left;padding:2px 0 0 25px;display:inline}
+.but_login{float:right;width:74px;border:0;height:30px;background:url(../images/login/but_login.gif) no-repeat;cursor: pointer;font-size:0; overflow:hidden;}
+
+#login_footer{width:100%; margin-top:20px;font-size:11px;color:#666;}
+
+a:link{color:#2B5D8C;text-decoration:none}
+a:visited{color:#2B5D8C;text-decoration:none}
+a:hover{color:#2B5D8C;text-decoration:underline}
+
+.input_defalut{background: #fff;-moz-border-radius: 3px;-webkit-border-radius:3px; border:1px solid #ADE2FF;padding:5px;}
+.input_on{background: #E2F2FF;-moz-border-radius: 3px;-webkit-border-radius:3px; border:1px solid #ADE2FF;padding:5px;}
+.input_error{background: #fff;-moz-border-radius: 3px;-webkit-border-radius:3px; border:1px solid #D23200;padding:5px;}

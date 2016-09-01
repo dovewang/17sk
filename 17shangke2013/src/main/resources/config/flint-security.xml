@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd 
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<description>权限配置</description>
+	<bean id="guard" class="kiss.security.Guard">
+		<property name="interceptors">
+			<list>
+				<bean name="domainInterceptor" class="flint.business.security.SchoolInterceptor"></bean>
+				<bean name="resourceInterceptor" class="flint.business.security.ResourceInterceptor">
+				    
+				</bean>
+				<bean name="groupInterceptor" class="flint.business.security.GroupInterceptor"></bean>
+			</list>
+		</property>
+
+	</bean>
+	<!-- 用户授权 -->
+	<bean id="authenticator" class="flint.business.security.DefaultAuthenticator">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="resourceManager" class="flint.business.security.ResourceManager">
+		<property name="dataSource" ref="dataSource" />
+		<property name="queryString"
+			value="SELECT ID,VALUE as PATH,FORWARD,HOST ,DOMAIN FROM  TB_RESOURCE" />
+	</bean>
+	<!-- 系统敏感词过滤数据源 -->
+	<bean id="wordSource" class="flint.security.word.JDBCWordSource">
+		<property name="dataSource" ref="dataSource" />
+		<property name="maxLevel" value="1" />
+		<property name="replaceModel" value="false" />
+	</bean>
+	<!-- 默认过滤 -->
+	<bean id="wordFilter" class="flint.security.word.DefaultWordFilter">
+		<property name="wordSource" ref="wordSource" />
+	</bean>
+
+	<!-- bbcode转换，和敏感词过滤算法相同 -->
+	<bean id="bbcodeSource" class="flint.security.word.BBCodeWordSource">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="bbcodeHelper" class="flint.security.word.DefaultWordFilter">
+		<property name="wordSource" ref="bbcodeSource" />
+	</bean>
+</beans>

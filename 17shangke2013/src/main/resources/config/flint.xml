@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util.xsd ">
+
+	<description>公共配置</description>
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config/flint.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${db.driver}" />
+		<property name="jdbcUrl" value="${db.url}" />
+		<property name="user" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+	<!-- Spring JDBC 配置 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+
+	<!-- daosupport -->
+	<bean id="jdbcDaoSupport" class="flint.jdbc.JdbcDaoSupport">
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+
+	<!-- 事务管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 任务调度配置 -->
+	<bean name="scheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="applicationContextSchedulerContextKey" value="applicationContextKey" />
+		<property name="configLocation" value="classpath:config/quartz.properties" />
+	</bean>
+
+	<!-- 工具类 -->
+	<bean id="springHelper" class="flint.util.SpringHelper" />
+	<bean id="helper" class="kiss.util.Helper" />
+	<bean id="freemarkerHelper" class="flint.business.util.FreeMarkerHelper" />
+	<bean id="imageHelper" class="flint.business.util.ImageHelper">
+		<property name="domain" value="${domain}" />
+	</bean>
+
+	<!--==============================web视图解析 ========================================= -->
+	<!-- 使用FastJson生成 -->
+	<bean id="jsonView" class="flint.web.JsonView" />
+	<!-- 简单字符串，默认生成JSON串，自由组装，适用较简单的消息输出，性能高于jsonView -->
+	<bean id="stringView" class="flint.web.StringView" />
+	<!-- 字符串组装的XML -->
+	<bean id="xmlView" class="flint.web.StringView">
+		<property name="contentType" value="text/xml" />
+	</bean>
+	<bean id="htmlView" class="flint.web.StringView">
+		<property name="contentType" value="text/html" />
+	</bean>
+	<!--==========================文件上传下载配置============================================= -->
+	<!-- 文件上传 -->
+	<bean id="multipartResolver" class="flint.web.multipart.MonitoredCommonsMultipartResolver">
+		<property name="maxUploadSize" value="1024000000" />
+	</bean>
+
+	<!-- 本地文件上传下载 -->
+	<bean id="uploadListener" class="flint.business.document.FileUploadListener">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<bean id="smarty" class=" kiss.storage.client.LocalSmarty">
+		<property name="config">
+			<props>
+				<prop key="storage.home">${webroot.path}</prop>
+				<prop key="storage.web">${storage.web}</prop>
+				<prop key="storage.check">${storage.check}</prop>
+				<prop key="storage.md5">${storage.md5}</prop>
+				<prop key="storage.http.image">${storage.http.image}</prop>
+				<prop key="storage.http.file">${storage.http.file}</prop>
+			</props>
+		</property>
+		<property name="uploadListener" ref="uploadListener" />
+	</bean>
+	<bean id="springSmarty" class="kiss.storage.client.SpringSmartyFactory">
+		<property name="smarty" ref="smarty" />
+	</bean>
+
+	<!-- 文档转换 -->
+	<bean id="converter" class="kiss.document.adapter.ConverterAdapter"
+		init-method="start" destroy-method="stop">
+		<property name="config">
+			<util:properties location="classpath:config/document.properties" />
+		</property>
+	</bean>
+	<!-- freemarker环境配置 -->
+	<bean id="freeMarkerConfiguration"
+		class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+		<property name="templateLoaderPath" value="/WEB-INF/templates" />
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="template_update_delay">${freemarker.template_update_delay}</prop>
+				<prop key="default_encoding">${freemarker.default_encoding}</prop>
+				<prop key="locale">${freemarker.locale}</prop>
+				<prop key="time_zone">${freemarker.time_zone}</prop>
+				<prop key="number_format">${freemarker.number_format}</prop>
+				<!-- <prop key="template_exception_handler">rethrow</prop> -->
+			</props>
+		</property>
+		<!-- 全局变量设置 -->
+		<property name="freemarkerVariables">
+			<map>
+				<entry key="Q" value-ref="helper" />
+				<!-- 系统环境配置 -->
+				<entry key="configHelper" value-ref="configHelper" />
+				<entry key="domainHelper" value-ref="domainHelper" />
+				<!-- 工具类 -->
+				<entry key="helper" value-ref="freemarkerHelper" />
+				<entry key="imageHelper" value-ref="imageHelper" />
+				<!-- 枚举 -->
+				<entry key="enumHelper" value-ref="enumHelper" />
+				<!-- 地区 -->
+				<entry key="regionHelper" value-ref="regionHelper" />
+				<!-- 课程分类 -->
+				<entry key="kindHelper" value-ref="kindHelper" />
+				<!-- 知识点 -->
+				<entry key="knowledgeHelper" value-ref="knowledgeHelper" />
+				<!-- bbcode等表情替换 -->
+				<entry key="bbcodeHelper" value-ref="bbcodeHelper" />
+				<!-- 货币单位 -->
+				<entry key="moneyUnit" value="点" />
+
+			</map>
+		</property>
+	</bean>
+	<bean id="freeMarkerConfigurer"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="configuration" ref="freeMarkerConfiguration" />
+	</bean>
+
+
+	<!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 ,一定要放在最后 -->
+	<context:component-scan base-package="flint">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"
+	mode="aspectj" />
+</beans>

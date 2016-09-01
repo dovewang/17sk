@@ -1,0 +1,18 @@
+{
+	"name": {
+		"required": "请您输入姓名",
+		"maxlength": 20
+	},
+	"phone": {
+		"required": "请您输入联系电话",
+		"maxlength": 20
+	},
+	"email": {
+		"validators": {
+			"email": "您输入的邮箱格式不对"
+		}
+	},
+	"address": {
+		"maxlength": 50
+	}
+}

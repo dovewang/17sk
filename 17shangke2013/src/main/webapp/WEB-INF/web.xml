@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0" metadata-complete="true">
+	<display-name>一起上课系统环境配置</display-name>
+	<!-- 系统模式[debug,product] -->
+	<context-param>
+		<param-name>model</param-name>
+		<param-value>debug</param-value>
+	</context-param>
+	<!-- 语言配置 -->
+	<context-param>
+		<param-name>locale</param-name>
+		<param-value>zh_CN</param-value>
+	</context-param>
+	<!-- 默认时区 -->
+	<context-param>
+		<param-name>timeZone</param-name>
+		<param-value>GMT+8</param-value>
+	</context-param>
+	<!-- 系统默认编码 -->
+	<context-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+	</context-param>
+	<!-- 日志初始化 -->
+	<context-param>
+		<param-name>logConfigLocation</param-name>
+		<param-value>/WEB-INF/classes/config/logback.xml</param-value>
+	</context-param>
+	<!-- 日志类型 -->
+	<context-param>
+		<param-name>logType</param-name>
+		<param-value>logback</param-value>
+	</context-param>
+	<!-- 以#开头表示相对于网站根目录的路径，否则请定义使用绝对路径 -->
+	<context-param>
+		<param-name>logPath</param-name>
+		<param-value>/data/web/logs</param-value>
+	</context-param>
+	<!-- resin 下不能识别，只能在resin.xml中配置 -->
+	<session-config>
+		<cookie-config>
+			<domain>.17shangke.com</domain>
+			<path>/</path>
+			<http-only>true</http-only>
+		</cookie-config>
+	</session-config>
+	<context-param>
+		<param-name>cookieDomain</param-name>
+		<param-value>.17shangke.com</param-value>
+	</context-param>
+	<!-- 系统初始化检测 -->
+	<listener>
+		<listener-class>flint.core.context.ContextListener</listener-class>
+	</listener>
+	<!-- Spring 初始化 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/classes/config/flint*.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- Spring 刷新Introspector防止内存泄露 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+
+	<!-- 安全过滤器 -->
+	<filter>
+		<filter-name>securityFilter</filter-name>
+		<filter-class>flint.business.security.SecurityFilter</filter-class>
+		<async-supported>true</async-supported>
+	</filter>
+	<filter-mapping>
+		<filter-name>securityFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!--字符编码过滤器 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<async-supported>true</async-supported>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 实时消息 -->
+	<servlet>
+		<servlet-name>cometd</servlet-name>
+		<servlet-class>org.cometd.server.CometdServlet</servlet-class>
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cometd</servlet-name>
+		<url-pattern>/ms/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- 图片服务器，通过域名转发可以直接映射到根目录，ip地址无法直接访问，将目录指向servlet的地址即可 -->
+	<servlet>
+		<servlet-name>imageServer</servlet-name>
+		<servlet-class>kiss.image.server.EmbeddedServer</servlet-class>
+		<init-param>
+			<param-name>imageServer.conf</param-name>
+			<param-value>/WEB-INF/image.properties</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>imageServer</servlet-name>
+		<url-pattern>/image.server/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- 验证码 -->
+	<servlet>
+		<servlet-name>captcha</servlet-name>
+		<servlet-class>flint.security.captcha.CaptchaServlet</servlet-class>
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>captcha</servlet-name>
+		<url-pattern>/captcha</url-pattern>
+	</servlet-mapping>
+
+	<!-- servlet 配置 -->
+	<servlet>
+		<servlet-name>flint</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>flint</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+
+	<!-- 错误页面配置 <error-page> <error-code>500</error-code> <location>/error/500.html</location> 
+		</error-page> <error-page> <error-code>400</error-code> <location>/error/400.html</location> 
+		</error-page> <error-page> <error-code>403</error-code> <location>/error/403.html</location> 
+		</error-page> <error-page> <error-code>404</error-code> <location>/error/404.html</location> 
+		</error-page> -->
+	<!-- 首页配置 -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>

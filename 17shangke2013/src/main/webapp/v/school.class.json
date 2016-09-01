@@ -1,0 +1,16 @@
+{
+	"name": {
+		"info": "请您输入班级名称",
+		"required": "请您输入班级名称",
+		"maxlength":50,
+		"validators": {
+			"_checkName": "function(value){if($.form.isChange($('#classForm'),'name')==false){return {valid:true};} var v;$.postSynch('/group/name.check.html',{name : value},function(result){if(result != 'true') {v= {valid:true};}else{v={valid:false,message:'该班级名已存在'};}});return v;}"
+		}
+	},
+	"intro" : {
+		"maxlength":200
+	},
+	"memo" : {
+		"maxlength":200
+	}
+}

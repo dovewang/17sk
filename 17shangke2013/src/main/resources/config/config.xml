@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<!-- 用户Session管理 -->
+	<entry key="session.login-url">/login.html</entry>
+	<entry key="session.logout-url">/logout.html</entry>
+	<entry key="session.admin-login-url">/admin/login.html</entry>
+	<entry key="session.admin-logout-url">/admin/logout.html</entry>
+	<entry key="session.session-id">sid</entry>
+	<entry key="session.session-timeout">300000</entry>
+	<entry key="session.cookie-domain"></entry>
+	<entry key="session.cookie-path">/</entry>
+	<entry key="session.keystore">c:/key.ser</entry>
+
+	<!-- 空格区分 -->
+	<entry key="session.memcached-servers">192.168.10.101:11211</entry>
+	<!-- 国际化配置,相对于于网站根目录 -->
+	<entry key="i18n.translator.config">WEB-INF/locale/</entry>
+
+	<!-- 用户注册验证失效时间 -->
+	<entry key="user.validate.timeout">1800</entry>
+	<!-- 用户上传头像图片大小限制，最大值(单位为KB) -->
+	<entry key="user.headPhoto.maxSize">100</entry>
+	<!-- 邮件激活主机地址 -->
+	<entry key="mail.active.url">http://192.168.10.101/validate.html?id=#USER_ID#&amp;ac=#ACTIVE_CODE#</entry>
+
+
+	<!-- 只先当前机器配置 -->
+	<entry key="storage.domain">http://127.0.0.1/</entry>
+	<!-- 图片存储，域名，或映射地址 -->
+	<entry key="image.domain">/image.server/</entry>
+</properties>

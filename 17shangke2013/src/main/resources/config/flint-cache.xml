@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:util="http://www.springframework.org/schema/util"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util.xsd ">
+	<!-- 缓存 -->
+	<bean id="cacheManager"
+	class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation">
+			<value>classpath:config/ehcache-local.xml</value>
+		</property>
+	</bean>
+	<!-- 系统级数据缓存 -->
+	<bean id="systemCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager">
+			<ref local="cacheManager" />
+		</property>
+		<property name="cacheName">
+			<value>flint.cache.system</value>
+		</property>
+	</bean>
+	<bean id="sessionCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager">
+			<ref local="cacheManager" />
+		</property>
+		<property name="cacheName">
+			<value>flint.cache.session</value>
+		</property>
+	</bean>
+	<!-- 临时缓存 -->
+	<bean id="tempCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager">
+			<ref local="cacheManager" />
+		</property>
+		<property name="cacheName">
+			<value>flint.cache.temp</value>
+		</property>
+	</bean>
+	<bean id="siteCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager">
+			<ref local="cacheManager" />
+		</property>
+		<property name="cacheName">
+			<value>flint.cache.site</value>
+		</property>
+	</bean>
+	<!-- 系统配置 -->
+	<bean id="configHelper" class="flint.context.ConfigHelper">
+		<property name="cache">
+			<ref local="systemCache" />
+		</property>
+		<property name="dao">
+			<ref local="jdbcDaoSupport" />
+		</property>
+	</bean>
+	<!-- 系统代码定义 -->
+	<bean id="codeHelper" class="flint.context.CodeHelper">
+		<property name="cache">
+			<ref local="systemCache" />
+		</property>
+		<property name="dao">
+			<ref local="jdbcDaoSupport" />
+		</property>
+	</bean>
+	<!-- 枚举缓存工具 -->
+	<bean id="enumHelper" class="flint.context.EnumHelper">
+		<property name="cache">
+			<ref local="systemCache" />
+		</property>
+		<property name="dao">
+			<ref local="jdbcDaoSupport" />
+		</property>
+	</bean>
+	<!-- 地区缓存工具 -->
+	<bean id="regionHelper" class="flint.context.RegionHelper">
+		<property name="dao">
+			<ref local="jdbcDaoSupport" />
+		</property>
+	</bean>
+	<!-- 系统模板及子域名对应关系 -->
+	<bean id="domainHelper" class="flint.business.util.DomainHelper">
+		<property name="cache">
+			<ref local="siteCache" />
+		</property>
+		<property name="dao">
+			<ref local="jdbcDaoSupport" />
+		</property>
+	</bean>
+
+	<!-- 知识点 -->
+	<bean id="kownledgeCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager">
+			<ref local="cacheManager" />
+		</property>
+		<property name="cacheName">
+			<value>flint.cache.kownledge</value>
+		</property>
+	</bean>
+
+	<!-- 课程类型缓存工具 -->
+	<bean id="kindHelper" class="flint.business.util.KindHelper">
+		<property name="cache">
+			<ref local="systemCache" />
+		</property>
+		<property name="dao">
+			<ref local="jdbcDaoSupport" />
+		</property>
+	</bean>
+	<!-- 知识点 -->
+	<bean id="knowledgeHelper" class="flint.business.util.KnowledgeHelper">
+		<property name="cache">
+			<ref local="kownledgeCache" />
+		</property>
+		<property name="dao">
+			<ref local="jdbcDaoSupport" />
+		</property>
+	</bean>
+
+	<!-- 数据操作缓存 <bean id="methodCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+	<property name="cacheManager"> <ref local="cacheManager" /> </property> <property
+	name="cacheName"> <value>flint.cache.method</value> </property> </bean> -->
+</beans>

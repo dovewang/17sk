@@ -1,0 +1,18 @@
+{
+	"subject": {
+		"info": "请您输入主题",
+		"required": "请您输入主题",
+		"maxlength": 80
+	},
+	"startTime": {
+		"info": "请您输入开始时间",
+		"required": "请您输入开始时间"
+	},
+	"time": {
+		"info": "请您输入预计时长",
+		"required": "请您输入预计时长",
+		"validators": {
+			"interger+": "时长必须为大于0整数"
+		}
+	}
+}

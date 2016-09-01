@@ -1,0 +1,33 @@
+{
+	"name": {
+		"info": "请您输入学校名称",
+		"required": "请您输入学校名称",
+		"maxLength": 50,
+		"validators": {
+			"_checkName": "function(value){if($.form.isChange($('#schoolForm'),'name')==false){return {valid:true};} var v;$.postSynch('/passport/name.check.html',{name : value},function(result){if(result.check == 'true') {v= {valid:true};}else{v={valid:false,message:'该名称已存在'};}});return v;}"
+		}
+	},
+	"domain": {
+		"info": "请您输入本站地址",
+		"required": "请您输入本站地址",
+		"maxLength": 50,
+		"validators": {
+			"_checkDomain": "function(value){if($.form.isChange($('#schoolForm'),'domain')==false){return {valid:true};} var v;$.postSynch('/manager/user/checkDomain.html', {domain : value}, function(result) {if(!result.result){v = {valid:true};}else{v = {valid:false,message:'该域名已经被注册'};}});return v;}"
+		}
+	},
+	"contact" : {
+		"info" : "请您输入联系人",
+		"required" : "请您输入联系人",
+		"maxLength": 30
+	},
+	"cert" : {
+		"info" : "请您填写组织机构代码证编号",
+	    "required":"请您填写组织机构代码证编号",
+	    "maxLength": 50
+	},
+	"phone" : {
+		"info" : "请您输入联系人电话",
+		"required" : "请您输入联系人电话",
+		"maxLength": 50
+	}
+}

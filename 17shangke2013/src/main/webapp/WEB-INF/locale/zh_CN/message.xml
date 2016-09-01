@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<!-- 用户登录及注册 -->
+	<entry key="user.name.isNotNull">用户名不能空！</entry>
+	<entry key="user.name.invalid">用户名包含敏感或违反规定的词组！</entry>
+	<entry key="user.password.isNotNull">用户密码不能空！</entry>
+	<entry key="user.password.error">用户密码错误！</entry>
+	<entry key="user.status.error">用户状态异常</entry>
+	<entry key="user.tryLoginManyTimes">多次尝试登录，您暂时不能登录</entry>
+	<entry key="user.isNotExists">用户不存在</entry>
+	<entry key="user.email.isNotNull">用户邮箱不能口空</entry>
+
+	<entry key="user.email.subject">教育网登录Email验证</entry>
+	<entry key="user.email.validate.failure">{},很抱歉，验证失败!请您再次验证!</entry>
+	<entry key="user.email.validate.success">{},恭喜您已验证成功!今后您也可以用邮箱{}进行登录!</entry>
+	<entry key="user.email.validate.timeout">{},很抱歉，验证已过有效期!请重新注册!</entry>
+	<entry key="user.email.validate.lose">验证链接已失效!请重新发送邮件</entry>
+	<entry key="user.email.recoverPassword.timeout">{},很抱歉，验证已过有效期!请重新发送邮件!</entry>
+	<entry key="user.email.recoverPassword.subject">教育网忘记密码验证</entry>
+	<entry key="user.email.recoverPassword.failure">{},很抱歉，验证失败!请您再次验证!</entry>
+	<entry key="user.email.recoverPasswordUrl.lose">验证链接已失效!请重新发送邮件</entry>
+	<entry key="user.email.reValidate.password.error">密码错误！请重新输入！</entry>
+	<entry key="user.email.reValidate.email.error">邮箱已被使用！请重新输入！</entry>
+
+	<!-- 教室相关 -->
+	<entry key="room.subject.temp">临时课题</entry>
+	<entry key="room.notExists">您所登录的教室不存在!</entry>
+	<entry key="room.status.invalid">教室状态异常：课程已取消或结束！</entry>
+	<entry key="room.password.need">教室需要登录密码才能进入！</entry>
+	<entry key="room.password.error">教室登录密码错误！</entry>
+
+	<entry key="sql.query">查询SQL语句:{},参数:{}</entry>
+	<entry key="trade.buycourse.memo">上课时间：{}至{}</entry>
+	
+	
+</properties>

@@ -1,0 +1,25 @@
+{
+	"intro": {
+		"validators": {
+			"size": {
+				"max": 100,
+				"message": "您输入的字数超过了限制"
+			}
+		}
+	},
+	"qq": {
+		"maxlength": 20
+	},
+	"msn": {
+		"maxlength": 50
+	},
+	"home": {
+		"maxlength": 80
+	},
+	"blog": {
+		"maxlength": 80
+	},
+	"address": {
+		"maxlength": 250
+	}
+}

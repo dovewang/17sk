@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.byrsp</groupId>
+		<artifactId>byrsp-projects</artifactId>
+		<version>0.9.4</version>
+	</parent>
+	<artifactId>17shangke2013</artifactId>
+	<packaging>war</packaging>
+	<properties>
+		<kiss.version>0.2.1</kiss.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>flint</groupId>
+			<artifactId>flint-core</artifactId>
+			<version>0.7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>flint</groupId>
+			<artifactId>flint-entity</artifactId>
+			<version>0.7.3</version>
+		</dependency>
+		<dependency>
+			<groupId>kiss</groupId>
+			<artifactId>kiss-docs</artifactId>
+			<version>${kiss.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>kiss</groupId>
+			<artifactId>kiss-util</artifactId>
+			<version>${kiss.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>kiss</groupId>
+			<artifactId>kiss-comet</artifactId>
+			<version>${kiss.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>kiss</groupId>
+			<artifactId>kiss-social</artifactId>
+			<version>${kiss.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>kiss</groupId>
+			<artifactId>kiss-image</artifactId>
+			<version>${kiss.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>kiss</groupId>
+			<artifactId>kiss-storage</artifactId>
+			<version>${kiss.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>kiss</groupId>
+			<artifactId>kiss-search</artifactId>
+			<version>${kiss.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>kiss</groupId>
+			<artifactId>kiss-data</artifactId>
+			<version>${kiss.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>kiss</groupId>
+			<artifactId>kiss-security</artifactId>
+			<version>${kiss.version}</version>
+		</dependency>
+		<!-- <dependency> <groupId>kiss</groupId> <artifactId>kiss-collaboration</artifactId> 
+			<version>${kiss.version}</version> </dependency> -->
+		<!-- <dependency> <groupId>kiss</groupId> <artifactId>kiss-business</artifactId> 
+			<version>${kiss.version}</version> </dependency> -->
+		<dependency>
+			<groupId>org.lesscss</groupId>
+			<artifactId>lesscss</artifactId>
+			<version>1.3.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<!-- <finalName>${project.artifactId}-${project.version}</finalName> -->
+		<finalName>flint-web</finalName>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<directory>target</directory>
+		<outputDirectory>target/classes</outputDirectory>
+		<testOutputDirectory>target/test-classes</testOutputDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+		</testResources>
+		<plugins>
+			<!-- html压缩 -->
+			<plugin>
+				<groupId>com.tunyk.mvn.plugins.htmlcompressor</groupId>
+				<artifactId>htmlcompressor-maven-plugin</artifactId>
+				<version>1.4-SNAPSHOT</version>
+				<configuration>
+					<phase>process-resources</phase>
+					<goalPrefix>htmlcompressor</goalPrefix>
+					<goals>
+						<goal>html</goal>
+					</goals>
+					<fileExt>
+						<fileExt>ftl</fileExt>
+						<fileExt>htm</fileExt>
+						<fileExt>html</fileExt>
+					</fileExt>
+					<srcFolder>src/main/webapp</srcFolder>
+					<targetFolder>target/flint-web/</targetFolder>
+					<compressCss>true</compressCss>
+					<compressJavaScript>false</compressJavaScript>
+				</configuration>
+				<!-- <executions> <execution> <id>htmlcompressor</id> <phase>process-resources</phase> 
+					<goals> <goal>html</goal> </goals> </execution> </executions> -->
+				<dependencies>
+					<dependency>
+						<groupId>com.googlecode.htmlcompressor</groupId>
+						<artifactId>htmlcompressor</artifactId>
+						<version>1.5.2</version>
+					</dependency>
+					<dependency>
+						<groupId>com.google.javascript</groupId>
+						<artifactId>closure-compiler</artifactId>
+						<version>r1043</version>
+						<!-- this is optional due to issue when starting selenium server which 
+							is using 1.7.1 and with this dependency it is trying to use 1.8.1 that causes 
+							error -->
+						<optional>true</optional>
+					</dependency>
+					<dependency>
+						<groupId>com.yahoo.platform.yui</groupId>
+						<artifactId>yuicompressor</artifactId>
+						<version>2.4.6</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<!-- <plugin> <artifactId>maven-antrun-plugin</artifactId> <version>1.7</version> 
+				<executions> <execution> <id>compile</id> <phase>compile</phase> <configuration> 
+				<target> <property name="compile_classpath" refid="maven.compile.classpath" 
+				/> <property name="runtime_classpath" refid="maven.runtime.classpath" /> 
+				<property name="test_classpath" refid="maven.test.classpath" /> <property 
+				name="plugin_classpath" refid="maven.plugin.classpath" /> <ant antfile="${basedir}/build.xml"> 
+				<target name="compress" /> </ant> </target> </configuration> <goals> <goal>run</goal> 
+				</goals> </execution> </executions> </plugin> -->
+			<!-- jetty -->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>8.1.5.v20120716</version>
+				<!--<version>8.1.10.v20130312</version>//存在文件锁定，未修复 -->
+				<configuration>
+					<contextPath>/</contextPath>
+					<scanIntervalSeconds>60</scanIntervalSeconds>
+					<systemProperties>
+						<systemProperty>
+							<name>spring.profiles.active</name>
+							<value>development</value>
+						</systemProperty>
+					</systemProperties>
+					<webAppConfig>
+						<parentLoaderPriority>true</parentLoaderPriority>
+						<defaultsDescriptor>support/jetty/webdefault.xml</defaultsDescriptor>
+					</webAppConfig>
+				</configuration>
+				<executions>
+					<execution>
+						<id>start-jetty</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<scanIntervalSeconds>0</scanIntervalSeconds>
+							<daemon>true</daemon>
+						</configuration>
+					</execution>
+					<execution>
+						<id>stop-jetty</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- tomcat:http://tomcat.apache.org/maven-plugin-2/index.html -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<!-- or if you want to use tomcat 6.x <artifactId>tomcat6-maven-plugin</artifactId> -->
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.0-beta-1</version>
+				<configuration>
+					<mode>war</mode>
+					<!-- http port -->
+					<port>80</port>
+					<!-- application path always starts with / -->
+					<path>/</path>
+					<useTestClasspath>false</useTestClasspath>
+					<contextReloadable>true</contextReloadable>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>javax.mail</groupId>
+						<artifactId>mail</artifactId>
+						<version>1.4.5</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<!--http://www.caucho.com/resin-4.0/admin/deploy-ant-maven.xtp <plugin> 
+				<groupId>com.caucho</groupId> <artifactId>resin-maven-plugin</artifactId> 
+				<version>4.0.17</version> <configuration> <server>127.0.0.1</server> <port>8086</port> 
+				<user>foo</user> <password>test</password> <contextRoot>/</contextRoot> </configuration> 
+				</plugin> -->
+		</plugins>
+	</build>
+</project>

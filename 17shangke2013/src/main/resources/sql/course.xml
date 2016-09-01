@@ -1,0 +1,30 @@
+<sql-mappings>
+	<sql id="coures_query" class="entity.Course">
+		SELECT
+		COURSE_ID,PARENT_ID,CLASS_ID,ROOM_ID,NAME,COVER,INTRO,TAG,USER,
+		PRICE,GROUP_BUY,APPLY_START_TIME,APPLY_END_TIME,PREDICT_START_TIME,
+		PREDICT_END_TIME,REAL_START_TIME,REAL_END_TIME,STATUS,
+		CAPACITY,JOINS,OUTS,COMPLETES,SCORE,FUND_RATIO
+		FROM
+		tb_course WHERE
+		CLASS_ID=${classid}		
+	</sql>
+	<sql id="coures_class_query">
+		SELECT
+		CLASS_ID,PARENT_ID,NAME,GRADE,AREA,SCHOOL,CREATOR,CREATE_TIME,STATUS,NUMS,OUTLINE
+		FROM
+		tb_course_class
+	</sql>
+	<sql id="coures_class_query1" returnClass="">
+		SELECT
+		CLASS_ID,PARENT_ID,NAME,GRADE,AREA,SCHOOL,CREATOR,CREATE_TIME,STATUS,NUMS,OUTLINE
+		FROM
+		tb_course_class
+	</sql>
+	<sql id="coures_class_query2">
+		SELECT
+		CLASS_ID,PARENT_ID,NAME,GRADE,AREA,SCHOOL,CREATOR,CREATE_TIME,STATUS,NUMS,OUTLINE
+		FROM
+		tb_course_class
+	</sql>
+</sql-mappings>

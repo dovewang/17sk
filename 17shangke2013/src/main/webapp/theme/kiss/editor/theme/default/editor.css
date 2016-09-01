@@ -1,0 +1,196 @@
+﻿/*
+Copyright 2013, KISS UI Library v0.7.2
+MIT Licensed
+build time: Jan 7 13:00
+*//* 仅支持ie7+,chrome.firefox，其他未经测试*/
+.editor {
+	border: 1px solid #ccc;
+	text-align:left;
+}
+.editor-header {
+	padding: 3px;
+	background: white url(images/header-bg.png) repeat-x bottom left;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+	zoom: 1;
+}
+.editor-header span {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+ *display:inline;
+	zoom: 1;
+	height: 20px;
+	width: 20px;
+	vertical-align: middle;
+	background: url(images/icons.png);
+	border: 1px solid transparent;
+}
+.editor-header span:hover, .editor-header span.active {
+	background-color: #fff5d4;
+	border: 1px solid #dcac6c;
+}
+.editor .disabled {
+	cursor: not-allowed;
+	opacity: 0.3;
+	filter: alpha(opacity = 30);
+}
+
+.editor-header span.disabled:hover{
+	background-color: none;
+	border: 1px solid transparent;
+}
+
+.editor-header span.divider {
+	width: 2px;
+	height: 20px;
+	margin: 2px 4px 2px 3px;
+	border:none;
+	background: url(images/icons.png) -180px 0;
+	cursor: default;
+}
+
+.editor-header span.divider:hover{
+	background-color: none;
+	border:none;
+}
+.editor-body {
+	padding:0;
+	margin:0;
+}
+.editor-footer {
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	border-top: 1px solid #ccc;
+	background: #fff;
+	position: relative;
+	color: #AAA;
+}
+.editor-footer .toggle {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 32px;
+	padding: 0 15px;
+	border-right: 1px solid #ccc;
+	cursor: pointer;
+}
+.editor-footer .wordcount {
+	position: absolute;
+	top: 0;
+	right: 15px;
+	height: 32px;
+	padding: 0 15px;
+}
+
+.editor-footer .wordcount em{
+	font-size:14px;
+	color: #390;
+	font-weight:600;
+}
+
+.editor-footer .wordcount em.over span{
+	color: #f60;
+}
+
+.editor-footer .resize {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	height: 32px;
+	width: 32px;
+	background: url(images/resize.gif) 15px 15px no-repeat;
+	cursor: s-resize;
+}
+/*operation*/
+.editor-header span.source {
+}
+.editor-header span.undo {
+	background-position: -160px 0;
+}
+.editor-header span.redo {
+	background-position: -100px 0;
+}
+.editor-header span.cut {
+	background-position: -680px 0;
+}
+.editor-header span.copy {
+	background-position: -700px 0;
+}
+.editor-header span.paste {
+	background-position: -560px 0;
+}
+/*text*/
+.editor-header span.bold {
+	background-position: 0 0;
+}
+.editor-header span.italic {
+	background-position: -60px 0;
+}
+.editor-header span.underline {
+	background-position: -140px 0;
+}
+.editor-header span.strikethrough {
+	background-position: -120px 0;
+}
+.editor-header span.subscript {
+	background-position: -600px 0;
+}
+.editor-header span.superscript {
+	background-position: -620px 0;
+}
+.editor-header span.insertorderedlist {
+	background-position: -80px 0;
+}
+.editor-header span.insertunorderedlist {
+	background-position: -20px 0;
+}
+.editor-header span.indent {
+	background-position: -400px 0;
+}
+.editor-header span.outdent {
+	background-position: -540px 0;
+}
+.editor-header span.justifyleft {
+	background-position: -460px 0;
+}
+.editor-header span.justifycenter {
+	background-position: -420px 0;
+}
+.editor-header span.justifyright {
+	background-position: -480px 0;
+}
+.editor-header span.justifyfull {
+	background-position: -440px 0;
+}
+.editor-header span.removeformat {
+	background-position: 0 -720px;
+}
+.editor-header span.image {
+	background-position: -380px 0;
+}
+.editor-header span.audio {
+	background-position: -18px -40px;
+}
+
+.editor-header span.video {
+	background-position: -320px -20px;
+}
+/*画板*/
+.editor-header span.sketchpad {
+	background-position: -801px -41px;
+}
+
+.editor-header span.template {
+	background-position: -339px -40px;
+}
+
+.editor-header span.attachment {
+	background-position: -620px -40px;
+}
+
+.editor-header span.camera {
+	background-position: 0 -60px;
+}
+

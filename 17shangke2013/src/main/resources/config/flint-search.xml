@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<description>全文检索配置</description>
+	<bean id="searchTemplate" class="flint.search.SearchTemplate">
+		  <property name="analyzer" ref="analyzer" />
+	</bean>
+	<bean id="analyzer" class="org.wltea.analyzer.lucene.IKAnalyzer">
+	</bean>
+	<!-- 课程全文检索模块配置 -->
+	<bean id="courseSearch" class="flint.business.search.CourseSearch"  destroy-method="destory">
+		<property name="searchTemplate" ref="searchTemplate" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="maxRecord" value="100" />
+		<property name="directory" ref="courseDirectory" />
+		<property name="autoIndexInterval" value="30" />
+		<property name="searchPoolSize" value="5" />
+	</bean>
+	<bean id="courseDirectory" class="org.apache.lucene.store.SimpleFSDirectory">
+		<constructor-arg name="path" value="${indexs.course.path}" />
+	</bean>
+	<!-- 问题全文检索模块配置 -->
+	<bean id="questionSearch" class="flint.business.search.QuestionSearch" destroy-method="destory">
+		<property name="searchTemplate" ref="searchTemplate" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="maxRecord" value="100" />
+		<property name="directory" ref="questionDirectory" />
+		<property name="autoIndexInterval" value="30" />
+		<property name="searchPoolSize" value="5" />
+	</bean>
+	<bean id="questionDirectory" class="org.apache.lucene.store.SimpleFSDirectory">
+		<constructor-arg name="path" value="${indexs.question.path}" />
+	</bean>
+	<!-- 教师全文检索模块配置 -->
+	<bean id="userSearch" class="flint.business.search.UserSearch" destroy-method="destory">
+		<property name="searchTemplate" ref="searchTemplate" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="maxRecord" value="100" />
+		<property name="directory" ref="teacherDirectory" />
+		<property name="autoIndexInterval" value="30" />
+		<property name="searchPoolSize" value="5" />
+	</bean>
+	<bean id="teacherDirectory" class="org.apache.lucene.store.SimpleFSDirectory">
+		<constructor-arg name="path" value="${indexs.user.path}" />
+	</bean>
+	<!-- 秀秀全文检索模块配置 -->
+	<bean id="showSearch" class="flint.business.search.ShowSearch" destroy-method="destory">
+		<property name="searchTemplate" ref="searchTemplate" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="maxRecord" value="100" />
+		<property name="directory" ref="showDirectory" />
+		<property name="autoIndexInterval" value="30" />
+		<property name="searchPoolSize" value="5" />
+	</bean>
+	<bean id="showDirectory" class="org.apache.lucene.store.SimpleFSDirectory">
+		<constructor-arg name="path" value="${indexs.show.path}" />
+	</bean>
+</beans>

@@ -1,0 +1,206 @@
+/* CSS Document */
+.zone-page {
+	background: #f9f9f9 url(../images/bg1.png) no-repeat center 35px;
+}
+#logo {
+	float: left;
+	display: block;
+}
+.zone-page .page-header {
+	height: 50px;
+	background: url(../images/top_bg.png) repeat-x;
+}
+.zone-page .page-body {
+	background: #fff7eb;
+	padding: 0;
+	zoom: 1;
+}
+.zone-page .global-nav-container {
+}
+.zone-page .page-left {
+	width: 150px;
+	padding: 0;
+	margin: 0;
+	border-right: 1px solid #efefef;
+}
+.zone-page .page-main {
+	width: 834px;
+	float: left;
+	background-color: #f1f1f1;
+	min-height: 500px;
+}
+.zone-page .page-right {
+	width: 190px;
+	float: right;
+}
+.zone-page .user-head-box {
+	height: 110px;
+	background: #527175;
+	text-align: left;
+	position: relative;
+	padding: 20px 30px;
+	color: #fff;
+}
+.zone-page .page-center {
+	width: 600px;
+	float: left;
+	padding: 20px;
+	background: #fff;
+}
+ul.zone-nav {
+	font-size: 14px;
+	border-bottom: none;
+}
+ul.zone-nav li {
+	border-bottom: 1px solid #efefef;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	display: block;
+}
+ul.zone-nav li a {
+	color: #444;
+}
+ul.zone-nav li.active {
+	background-color: #f90;
+	font-weight: bold;
+}
+ul.zone-nav li.active a {
+	color: #fff;
+}
+
+ul.zone-nav li {
+	background-image: url(../images/icons.png);
+	background-repeat: no-repeat;
+	background-position: 15px 1px
+}
+ul.zone-nav li.zicon2 {
+	background-position: 15px -30px
+}
+ul.zone-nav li.zicon3 {
+	background-position: 15px -60px
+}
+ul.zone-nav li.zicon4 {
+	background-position: 15px -90px
+}
+ul.zone-nav li.zicon5 {
+	background-position: 15px -120px
+}
+ul.zone-nav li.zicon6 {
+	background-position: 15px -150px
+}
+ul.zone-nav li.zicon7 {
+	background-position: 15px -180px
+}
+ul.zone-nav li.zicon8 {
+	background-position: 15px -208px
+}
+
+.shady {
+	height: 3px;
+	width: 100%;
+	background: #efefef;
+}
+
+.user-head-box .name {
+	font-size: 16px;
+}
+.user-head-box .expert {
+	padding: 5px 0;
+	margin-right: 120px;
+	overflow: hidden
+}
+.user-head-box .trade-notify, .user-head-box .action-group {
+	position: absolute;
+	background: #3e5d61;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 15px;
+	top: 90px;
+	left: 30px
+}
+.trade-notify dl dd, .trade-notify dl dt, .action-group dl dd {
+	float: left;
+	padding: 0 5px;
+}
+.trade-notify a {
+	color: #fff;
+}
+.trade-notify span.count {
+	color: #f90;
+	font-weight: bold;
+}
+.user-head-box .action-group {
+	left: 360px;
+	background: #ffe5bd;
+}
+.action-group a {
+	color: #f60;
+	font-weight: bold;
+}
+
+.user-head-box .user-stat {
+	position: absolute;
+	right: 60px;
+	top: 20px;
+	text-align: right;
+	font-size: 14px;
+}
+.user-head-box .user-stat dd {
+	height: 25px;
+	line-height: 25px;
+}
+.user-head-box .user-stat dd span {
+	color: #f90;
+	padding: 0 10px;
+	font-weight: bold;
+}
+
+.user-head-box .user-button-group {
+	line-height: 30px;
+}
+.user-head-box .user-button-group a {
+	display: inline-block;
+	padding: 0 5px;
+	color: #f90;
+	text-decoration: none;
+	background: #fff;
+	margin: 0 2px;
+}
+
+.user-list-box {
+}
+.user-list-box h4 {
+	text-align: left;
+	padding: 5px;
+}
+.user-list-box ul {
+	margin: 0;
+	padding: 0;
+}
+.user-list-box ul li {
+	float: left;
+	margin: 3px;
+	padding: 2px;
+	width: 50px
+}
+.user-list-box ul li span {
+	width: 60px;
+	color: #444;
+	height: 21px;
+	line-height: 21px;
+	overflow: hidden;
+	display: block;
+	text-align: left;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+dl.user-item.list-item {
+	position: relative;
+}
+dl.user-item .action-group {
+	position: absolute;
+	right: 5px;
+	top: 20px;
+}

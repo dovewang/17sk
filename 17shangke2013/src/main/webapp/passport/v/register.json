@@ -1,0 +1,49 @@
+{
+	"email": {
+		"label": "邮箱地址",
+		"info": "请输入您的常用邮箱作为登录账号",
+		"required": "请输入您的邮箱",
+		"validators": {
+			"email": "您输入的邮箱不符合规定",
+			"_checkEmail": "function(value){var v;$.postSynch(Env.SECURE_DOMAIN +'/email.check.html',{email : value},function(result){if(result != 'true') {v= {valid:true};}else{v={valid:false,message:'该邮箱已被注册'};}});return v;}"
+		}
+	},
+	"userName": {
+		"info": "昵称，4-12个字符，1个汉字长度为2",
+		"required": "请您输入昵称",
+		"validators": {
+			"username": "只能使用字母、数字、下划线、汉字",
+			"size": {
+				"min": 4,
+				"max": 12,
+				"chinese": true,
+				"message": "您输入的昵称不符合要求"
+			},
+			"_checkName": "function(value){var v;$.postSynch(Env.SECURE_DOMAIN +'/name.check.html', {name : value},function(result){if(result.check == 'true') { $('#suggestName').hide();v={valid:true};}else{showSuggestName(result.names);v={valid:false,message:'这个名字太受欢迎，已被注册了'};}});return v;}"
+		}
+	},
+	"password": {
+		"label": "密码",
+		"info": "请您输入密码，密码长度为6-16字符",
+		"required": "请您输入密码",
+		"validators": {
+			"password": {
+				"event": true,
+				"strong": 2,
+				"message": "您输入的密码太简单了"
+			},
+			"size": {
+				"min": 6,
+				"max": 16,
+				"message": "密码长度为6-16字符"
+			}
+		}
+	},
+	"password1": {
+		"info": "请您再次输入密码",
+		"required": "请您确认输入密码",
+		"validators": {
+			"_equals": "function(value){if(value!=$('#password').val()){return {valid:false,message:'重复密码不匹配'};}else{ return {valid:true};}}"
+		}
+	}
+}

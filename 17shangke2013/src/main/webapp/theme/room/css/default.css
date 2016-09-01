@@ -1,0 +1,44 @@
+/* CSS Document */
+.page-container{ margin:0; padding:0;}
+.page-header{height:60px; line-height:60px; vertical-align:middle;}
+.page-left{ float:left; width:80px;}
+.page-right{float:left; width:650px;}
+.page-header:after,
+.page-container:after,
+.page-body:after,
+.page-footer:after{content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+/*按钮样式*/
+.button{background:url(../images/buttons_bg.png) 0 0 no-repeat; border:#cccccc 1px solid;color:#444;padding:4px 15px; line-height:15px;}
+a.button{ height:15px; line-height:15px;color:#444;}
+.button:hover{text-decoration:none;color:#444;background-position:0 -28px;}
+.button.small{}
+.button.primary,.button.ok{ background-position:0 -84px; border-color:#ff6600;color:#fff;}
+.button.primary:hover,.button.ok:hover{background-position:0 -112px;}
+
+.search{}
+.search input{
+	height:20px;padding:0px;text-indent:5px;
+	-webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius:3px 0 0 3px;
+}
+.search button,.search button:hover{
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+  height:22px;
+  margin:0;
+  padding:0 10px;
+  background: url(../../main/default/images/icons.png) no-repeat  3px -375px; 
+}
+
+.notebook{ padding-left:10px; background:#f90;}
+.notebook .page-container{ background:#fff; height:100%}
+.notebook .tab-header{ width:60px;}
+.notebook .tab-header li{ border:none; margin:0; padding:0; clear:both; margin:2px 0; background:url(../images/bg.png) no-repeat 0 -130px; overflow:hidden;}
+.notebook .tab-header li a{ padding:0; display:block; height:33px; line-height:33px; width:60px;}
+.tag-add a{ position:relative;}
+.notebook .tag-add i{background:url(../images/bg.png) no-repeat 0 -170px; display:block;height:12px; width:12px; position:absolute;top:9px;left:18px;}
+.notebook .tab-header li.active a{height:40px; line-height:40px; color:#fff;}
+.notebook .tab-header li.active { background-position:0 -80px;}
+.page-header.document-manager{ background:url(../images/bg.png) 0 0 no-repeat;}

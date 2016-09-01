@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<description>cometd实时消息配置</description>
+	<bean
+	class="org.springframework.web.context.support.ServletContextAttributeExporter">
+		<property name="attributes">
+			<map>
+				<entry key="org.cometd.bayeux" value-ref="bayeux" />
+			</map>
+		</property>
+	</bean>
+	<bean id="bayeux" class="org.cometd.server.BayeuxServerImpl"
+	init-method="start" destroy-method="stop">
+		<property name="options">
+			<map>
+				<!-- The log level; 0 = off, 1 = config, 2 = info, 3 = debug -->
+				<entry key="logLevel" value="0" />
+				<entry key="ws.timeout" value="15000" />
+				<entry key="timeout" value="30000" />
+				<entry key="maxLazyTimeout" value="5000" />
+				<entry key="maxInterval" value="20000" />
+				<entry key="interval" value="0" />
+			</map>
+		</property>
+		<property name="transports">
+			<list>
+				<bean id="websocketTransport" class="org.cometd.websocket.server.WebSocketTransport">
+					<constructor-arg ref="bayeux" />
+				</bean>
+				<bean id="jsonTransport" class="org.cometd.server.transport.JSONTransport">
+					<constructor-arg ref="bayeux" />
+				</bean>
+				<bean id="jsonpTransport" class="org.cometd.server.transport.JSONPTransport">
+					<constructor-arg ref="bayeux" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="cometdService" class="flint.business.message.CometdService">
+		<constructor-arg ref="bayeux" />
+	</bean>
+</beans>

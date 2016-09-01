@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd 	
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" 
+		/> <bean id="themeResolver" class="org.springframework.web.servlet.theme.CookieThemeResolver"> 
+		<property name="defaultThemeName" value="spring" /> </bean> -->
+	<!-- 这里做了调整，目前保证学校网站能够正常运行 -->
+	<!-- HTML 输出 -->
+	<bean id="viewResolver" class=" flint.business.web.view.FreeMarkerThemeViewResolver">
+		<property name="cache" value="true" />
+		<property name="prefix" value="" />
+		<property name="suffix" value=".ftl" />
+		<property name="contentType" value="text/html;charset=UTF-8" />
+		<property name="viewClass" value=" flint.business.web.view.FreeMarkerThemeView" />
+		<!-- 如果你需要使用Spring 对 FreeMarker 宏命令的支持, 将这个属性设为true -->
+		<property name="exposeSpringMacroHelpers" value="true" />
+	</bean>
+<!--
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<list>
+				  <bean class="kiss.form.form" />
+			</list>
+		</property>
+	</bean>
+-->
+	<!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
+	<context:component-scan base-package="flint.business">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
+</beans>

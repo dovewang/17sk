@@ -1,0 +1,42 @@
+/* CSS Document */
+.order-title{ margin:15px 0;}
+.order-page{ padding:0;}
+.order-header{ background-color:#FEFFE5; color:#666; height:45px; line-height:45px; vertical-align:middle; text-align:left; font-size:14px; font-weight:bold; padding-left:15px;}
+
+.order-page .order-confirm-title,.order-page .order-split-bar{ background:#ffd596;;height:50px; line-height:50px; text-align:left;zoom:1; text-indent:15px; font-size:16px;}
+.order-page .order-split-bar{ background:#f9f9f9; color:#f60; margin-top:30px; font-weight:bold; font-size:14px;}
+.order-page .table th{ border-bottom: #f90 1px solid;}
+.order-page .table tbody td{ border-top:none; padding:8px 5px;}
+
+/*报名用户列表*/
+ul.order-buyers{ clear:both; margin:0; padding:0;}
+ul.order-buyers li{ float:left; text-align:left; padding:15px; margin:15px; display:block;  border:1px solid #dddddd;cursor:pointer; width:260px; height:80px; }
+ul.order-buyers li div.name{ font-size:14px; font-weight:bold;}
+ul.order-buyers li:hover{ border-color:#78ce88}
+ul.order-buyers li.selected{border-color:#78ce88; background-image:url(../images/selected.png) ; background-position:right top; background-repeat:no-repeat;}
+
+.add-user-address input{ width:200px; }
+
+.order-success{ background:url(../images/success.png) no-repeat 20px center; width:400px; font-size:18px; font-weight:bold; padding:20px; text-align:left; text-indent:60px;}
+
+
+.money{color:#f60;font-size:18px;line-height:130%}
+/*交易*/
+#trade-notify:after{content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+#trade-notify dl dt,#trade-notify dl dd{float:left;padding:3px 15px;}
+#trade-notify dl dt{color:#f60;}
+#trade-notify  .count{color:#f60;}
+#trade-order-list{}
+#trade-order-list tbody tr.order-header td{text-align:left;background:#FEFFE5;}
+#trade-order-list tr td,#trade-order-list tr th{ text-align:center;}
+#trade-order-list tbody tr.order-header span{ padding:2px 8px;}
+#trade-order-list tbody .order-address{text-align:left;}
+
+/*订单页面*/
+#trade-order-box{ background-color: #FEFFE5;border: 1px  solid #F9F2A7;color: #D4A639;}
+#trade-order-box .text-arrow{ margin-left:50px;}
+table.trade-table{}
+table.trade-table td{ padding:10px 5px;}
+
+.share-box{
+}

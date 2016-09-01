@@ -1,0 +1,15 @@
+{
+	"email": {
+		"info": "请输入邮箱",
+		"required": "请输入邮箱",
+		"maxlength": 80,
+		"validators": {
+			"email": "您输入的邮箱不符合规定"
+		}
+	},
+	"username": {
+		"info": "请输入姓名",
+		"required": "请输入姓名",
+		"maxlength": 30
+	}
+}

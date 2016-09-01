@@ -1,0 +1,20 @@
+<div>
+	<iframe id="camera_iframe" src="/theme/kiss/editor/plugins/camera/camera.jsp" frameborder="0" style="height: 450px;width: 100%;"></iframe>
+</div>
+<script type="text/javascript">
+	Camera = {
+		take : function(message) {
+			/*直接插入图片，暂时不做处理，后续可以加入对拍摄图片处理的功能(主要指标记功能)*/
+			try {
+				$("#editor-camera").data("options").editor.cmd.insertimage(message);
+			} catch(e) {
+				//alert(e.message)
+			}
+			Camera.close();
+		},
+		/*关闭拍摄窗口*/
+		close : function() {
+			Pop.hide($("#editor-camera"))
+		}
+	}
+</script>

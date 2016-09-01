@@ -1,0 +1,27 @@
+<div>
+	<iframe   name="sketchpad_iframe_name" src="/theme/kiss/sketchpad/sketchpad.htm" frameborder="0" style="height: 480px;width: 100%;" scrolling="no"></iframe>
+</div>
+<div>
+	<button  onclick="sketchpad_insert()" class="button primary">
+		插入
+	</button>
+	<button class="button" node-type="pop-close">
+		取消
+	</button>
+</div>
+<script type="text/javascript">
+	function sketchpad_insert() {
+		var data = sketchpad_iframe_name.getImageData();
+		$.post("/upload/data.html", {
+			data : data
+		}, function(result) {
+			try {
+				$("#editor-sketchpad").data("options").editor.cmd.insertimage(result.url);
+			} catch(e) {
+				//alert(e.message)
+			}
+			Pop.hide($("#editor-sketchpad"));
+		})
+	}
+</script>
+

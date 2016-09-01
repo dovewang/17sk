@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="sql.execute">执行SQL语句:{},参数:{}</entry>
+	<entry key="sql.query">查询SQL语句:{},参数:{}</entry>
+	<entry key="menu.topLevel.query">查询一级菜单出错!</entry>
+	<entry key="menu.query">生成菜单出错!</entry>
+	<entry key="menu.menuTree.query">生成菜单管理树出错!</entry>
+	<entry key="resourceSecurity.allowed.query">查询允许访问的权限出错!</entry>
+	<entry key="resourceSecurity.forbidden.query">查询不允许访问的权限出错!</entry>
+</properties>

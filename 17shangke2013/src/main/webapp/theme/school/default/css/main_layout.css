@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+#wrap{margin:0 auto;}
+#wrapbottom{margin:0 auto;padding-top:13px;}
+#wrapcon{margin:0 auto;width:1062px;}
+#conframe{ margin:0 auto;width:1000px;}
+#header{margin:0 auto;width:950px;height:75px;padding:0 25px;}
+#headercon{width:950px;position:relative;}
+#content{margin:0 auto;width:950px;padding:18px 25px;}
+#footer{margin:0 auto;width:1002px;height:190px;padding:15px 0 0 0;}
+
+
+#leftbox{float:left;width:186px;}
+#rightbox{float:right;width:750px;}
+#rightboxbottom{width:732px;height:10px;}
+#rightboxcon{width:730px;}
+
+.member_infbox{width:186px;height:158px;}
+.leftconbox{width:186px; margin-top:18px;}

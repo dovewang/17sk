@@ -1,0 +1,12 @@
+<select id="login" returnType="int">
+	select count(1) from tb_user 
+	where 
+	#{
+		if(isEmail(username)){
+		   email=?
+		}else{
+		   	(username =? or tel=? ) 
+		}
+	}
+	and password=?
+</select>

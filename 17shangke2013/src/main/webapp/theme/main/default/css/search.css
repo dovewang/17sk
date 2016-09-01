@@ -1,0 +1,99 @@
+/* CSS Document */
+#logo {
+	float: left;
+	display: block;
+}
+.page-header {
+	height: 35px;
+	background-color: #2e4442;
+}
+.page-body {
+	padding: 0;
+	zoom: 1;
+}
+.global-nav-container {
+}
+#search-box {
+	text-align: left;
+}
+#search-box ul {
+	display: inline;
+}
+#search-box ul li {
+	display: block;
+	float: left;
+	height: 45px;
+	line-height: 45px;
+	vertical-align: middle;
+}
+#search-box ul li a {
+	font-size: 14px;
+	color: #444444;
+	display: block;
+	padding: 0 20px;
+}
+#search-box ul li a:hover {
+	background: #f60;
+	color: #fff;
+}
+#search-box ul li.active {
+	background: #ff9900
+}
+#search-box ul li.active a {
+	color: #fff;
+}
+#search-box dd {
+	border: 2px solid #f90;
+	position: relative;
+	height: 37px
+}
+#search-box dd input {
+	padding: 0;
+	margin: 0;
+	border: none;
+	font-size: 18px;
+}
+.user-wf-box {
+	text-align: left;
+	width: 182px;
+	padding: 20px;
+	margin: 5px 10px;
+	line-height: 20px;
+}
+.user-wf-box h3 {
+	font-size: 14px;
+	font-weight: bold;
+}
+.user-wf-box .user-mark {
+	padding: 5px 0;
+}
+.user-wf-box .user-mark li {
+	float: left;
+	width: 24%;
+}
+.user-wf-box .user-mark li a, .user-wf-box .user-mark li b {
+	display: block;
+	text-align: center;
+}
+.user-wf-box  .user-face{position: relative; display: block;border: solid 1px #D8D8D8;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;}
+.user-wf-box .user-button-group{ /*display:none;*/width:180px; height:30px; line-height: 30px;position: absolute;left:0;bottom: 0;background: #000000;opacity: 0.6;filter:alpha(opacity=60);}
+.user-wf-box .user-button-group a{ display:inline-block;padding: 0 5px;color: #fff;text-decoration: none;}
+/*.user-wf-box a.user-face:hover .user-button-group{display:block;}*/
+a.load-more-button {
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	background: #fff;
+	display: block;
+	margin: 10px 0;
+	color: #f60;
+	text-decoration: none;
+}
+
+.follow{padding:0 2px;display: inline-block; position:relative;cursor:pointer;zoom:1;}
+.follow i{ display:block;background: url(../images/f1.png) no-repeat -100px -20px;height:24px;width:24px;position: absolute;top:3px;left:0;}
+.follow.status1{padding-left:16px;}
+.follow.status3{padding-left:36px;}
+.follow.status3 i{background-position: -120px -20px;width:35px;}
+

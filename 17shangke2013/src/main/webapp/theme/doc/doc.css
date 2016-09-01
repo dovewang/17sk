@@ -1,0 +1,89 @@
+.doc-widget{
+	width:800px;
+}
+
+.doc-widget-header{
+	
+}
+.doc-widget-body{
+	position:relative;	
+}
+.doc-widget-footer{
+   
+}
+.doc-widget-left{
+	width:100px;
+	float:left;
+	display:none;
+}
+.doc-widget-content{
+	word-break:break-all;
+}
+/*右侧工具栏，包含评论、提问、和笔记*/
+.doc-widget-right{
+	position:absolute;
+	top:0;
+	right:0;
+	height:500px;
+	background:#666;
+	display:none;
+}
+
+.doc-part ul li{
+	display:block;
+	height:90px;
+	margin-right:25px;
+	position:relative;
+	float:left;
+}
+
+.doc-part ul li.add,.doc-part div.add{
+	background:#efefef;
+	width:90px;
+	height:88px;
+	border:1px dashed #bbb;
+	font-size:36px;
+	text-align:center;
+	line-height:88px;
+	vertical-align:middle;
+	color:#ccc;
+	cursor:pointer;
+}
+
+.doc-part ul li i.cover{
+	width:84px;
+	height:85px;
+	display:block;
+	float:left;
+	background:url(images/resource.png)  no-repeat;
+}
+.doc-part ul li span{
+	display:block;
+	float:left;
+	padding:3px;
+}
+
+.doc-part ul li .doc-link{
+	position:absolute;
+	left:88px;
+	bottom:5px;
+	width:80px;
+}
+
+
+.doc-part ul li i.cover.document{
+	background-position:0 0;
+}
+.doc-part ul li i.cover.image{
+	background-position:-430px 0;
+}
+
+.doc-part ul li i.cover.audio{
+	background-position:-517px 0;
+}
+
+.doc-part ul li i.cover.video{
+	background-position:-603px 0;
+}
+
+

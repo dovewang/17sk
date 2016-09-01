@@ -1,0 +1,17 @@
+{
+	"contact": {
+		"info": "请您输入联系人",
+		"required": "请您输入联系人",
+		"maxlength": 30
+	},
+	"phone": {
+		"info": "请您输入联系人电话",
+		"required": "请您输入联系人电话",
+		"maxlength": 30
+	},
+	"logoFile":{
+		"validators": {
+			"image": "您选择的文件格式不对"
+		}
+	}
+}

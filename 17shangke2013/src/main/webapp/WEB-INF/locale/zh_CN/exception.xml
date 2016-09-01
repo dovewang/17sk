@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="java.lang.Exception">系统异常</entry>
+	<entry key="101">课程不存在</entry>
+	<entry key="102">课程已结束</entry>
+	<entry key="103">课程已取消</entry>
+	<entry key="104">教室登录需要密码</entry>
+	<entry key="105">教室登录密码错误</entry>
+	<entry key="106">用户没有安排这个课程</entry>
+	<entry key="107">该用户已在另一位置登录</entry>
+</properties>

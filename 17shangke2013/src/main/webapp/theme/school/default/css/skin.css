@@ -1,0 +1,147 @@
+.page-header, .page-body, .page-footer {
+	overflow: visible;
+	position: relative;
+}
+.page-body {
+	top: 40px;
+}
+.page-body .page-left {
+	float: left;
+	width: 220px;
+	position: relative;
+}
+.page-body .page-content {
+	margin-left: 220px;
+	margin-right: 0;
+	padding: 15px;
+	padding-bottom: 25px;
+	background: #fff;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+/*侧边栏菜单定义*/
+.sidebar {
+	display: block;
+	position: relative;
+	width: 220px;
+}
+.sidebar > ul {
+	list-style: none;
+	margin: 10px 0 0;
+	padding: 0;
+	position: absolute;
+}
+.sidebar > ul > li {
+	display: block;
+	position: relative;
+}
+.sidebar > ul > li.active {
+}
+.sidebar > ul > li > a {
+}
+.sidebar > ul > li > a > i {
+	margin-right: 10px;
+}
+.sidebar > ul > li.active > a {
+}
+.sidebar > ul > li > a > .label {
+}
+.sidebar > ul ul {
+}
+.sidebar > ul li.open ul {
+	display: block;
+}
+.sidebar > ul ul li a {
+}
+ul.group-years {
+	border-bottom: 1px solid #bbb;
+	padding: 8px 5px;
+	margin: 0;
+	margin-bottom: 10px;
+}
+ul.group-years li {
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 15px;
+}
+ul.group-years li a {
+	display: block;
+	height: 30px;
+	text-align: center;
+	font-size: 16px
+}
+ul.group-years li a sup {
+	color: #f60;
+}
+ul.group-years li a.active {
+	background: #f90;
+	color: #fff;
+}
+dl.group-item, dl.user-item {
+	position: relative;
+	margin: 0;
+	margin-bottom: 5px;
+	clear: both;
+	padding: 8px;
+}
+dl.group-item {
+	border-bottom: 1px dashed #ccc;
+}
+dl.group-item dt {
+	width: 70px;
+	float: left;
+}
+dl.user-item dt {
+	width: 40px;
+	float: left;
+}
+dl.group-item dt img, dl.user-item dt img {
+	border-radius: 5px;
+}
+dl.group-item dd {
+	margin-left: -5px;
+	margin-top: -8px;
+	width: 100%;
+	position: relative;
+	height: 70px;
+}
+dl.user-item dd {
+	margin-left: -40px;
+	width: 100%;
+	position: relative;
+	height: 50px;
+}
+dl.group-item dd span.group-memebers {
+	position: absolute;
+	top: 0;
+	right: 5px;
+}
+dl.group-item div.control-bar, dl.user-item div.control-bar {
+	display: none;
+}
+dl.group-item div.control-bar a, dl.user-item div.control-bar a {
+	padding: 0 8px;
+}
+dl.group-item.active {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FFEFBE), to(#ffffff));
+	background-image: -webkit-linear-gradient(top, #FFEFBE, #ffffff);
+	background-image: -moz-linear-gradient(center top, #FFEFBE, #ffffff);
+	background-image: -ms-linear-gradient(top, #FFEFBE, #ffffff);
+	background-image: -o-linear-gradient(top, #FFEFBE, #ffffff);
+	background-image: linear-gradient(center top, #FFEFBE, #ffffff);
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = #FFEFBE, endColorstr = #ffffff);
+}
+dl.group-item:hover {
+	background: #FFE7BE;
+	-webkit-transition: all 0.3s ease-out;  /* Safari 3.2+, Chrome */
+	-moz-transition: all 0.3s ease-out;  /* Firefox 4-15 */
+	-o-transition: all 0.3s ease-out;  /* Opera 10.5–12.00 */
+	transition: all 0.3s ease-out;  /* Firefox 16+, Opera 12.50+ */
+}
+dl.group-item:hover div.control-bar, dl.user-item:hover div.control-bar {
+	display: block;
+}
+#group-list {
+}

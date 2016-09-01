@@ -1,0 +1,28 @@
+.timetable-header{
+	position:relative;
+}
+.timetable .timetable-body{background:#FFF;}
+
+.timetable .timetable-body th{
+	text-align:center;
+}
+.timetable .timetable-body th.number {
+	width: 50px;
+}
+.timetable .timetable-body.week td {
+	width: 95px;
+}
+.timetable .timetable-body td.rest {
+	text-align: center;
+	background-color: #FFC;
+	opacity:0.7;
+}
+
+.timetable .timetable-body td.blank{
+	text-align:center;
+	border:none;
+	border:dashed 1px #bbb;
+	font-size:24px;
+	color:#bbb;
+	cursor:pointer;
+}

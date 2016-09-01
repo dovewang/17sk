@@ -1,0 +1,72 @@
+﻿@charset "utf-8";
+/* CSS Document */
+div,form,img,ul,ol,li,dl,dt,dd,p{margin: 0; padding: 0; border: 0;}
+body{font-size:12px;font-family:"宋体";margin:0; padding:0;color:#000;}
+ul{list-style:none;}
+img{border:0; font-size:0;overflow:hidden}
+h1,h2,h3,h4,h5,h6 {margin:0; padding:0;}
+.clear{clear:both;font-size:0;height:0;overflow:hidden;}
+
+
+.hide{display:none;}
+.floatLeft{float:left;}
+.floatRight{float:right;}
+
+.marginTop15{margin-top:15px;}
+.marginRight10{margin-right:10px;}
+
+
+/* CSS Document */
+#logo{width:170px;height:61px;background:url(../images/logo.png) 0 12px no-repeat;position: absolute;top:15px; z-index:100;font-size:0; overflow:hidden}
+
+#logo_ex{width:98px;height:58px;background:url(../images/bg_png.png) 0 -40px no-repeat;position: absolute;top:15px;left:176px;z-index:100;font-size:0; overflow:hidden}
+
+/*#loginbar{width:350px;position: absolute;z-index:101;top:3px; right:0;}
+#loginbar{color:#656565;}
+#loginbar span{float:right; display:inline;height:22px;display:block; padding:5px;}
+.information{padding-left:30px; background:url(../images/icon_member.gif) 0 -120px no-repeat;}
+.information strong{font-weight:normal;color:#E33300}
+
+#loginbar span.a_quit a:link{color:#E33300;text-decoration:none}
+#loginbar span.a_quit a:visited{color:#E33300;text-decoration:none}
+#loginbar span.a_quit a:hover{color:#E33300;text-decoration:underline}*/
+
+#nav{width:708px;height:42px;top:31px;position:absolute;z-index:1;right:0;background:url(../images/bg_navmin.jpg) repeat-x;}
+.nav_left{float:left;width:22px;height:43px; background:url(../images/bg_nav.jpg) no-repeat;}
+.menu{float:left;width:406px;height:43px;}
+.menu ul li{float:left;height:43px;line-height:43px;font-weight:bold;font-size:13px;color:#fff;}
+.menu ul li a:link{padding:0 10px; text-decoration:none;color:#fff}
+.menu ul li a:visited{padding:0 10px; text-decoration:none;color:#fff}
+.menu ul li a:hover{padding:0 10px; text-decoration:underline;color:#fff}
+.menu ul li.active{height:43px;background:url(../images/bg_navactive.jpg)  center top no-repeat;padding:0 10px;color:#fff;}
+.menu ul li.navlibg{background:url(../images/bg_navli.jpg) no-repeat;width:2px;height:43px; font-size:0; overflow:hidden}
+
+.searchbox{float:left;width:280px;height:43px; background:url(../images/bg_navright.jpg)  top right no-repeat; position:relative}
+.searchbox .textinput{float:left;width:230px;height:14px;font-size:12px;margin:8px 0 0 0;display:inline; background:#F5FBFF;}
+.searchbox .but_search{float:left;width:25px;height:21px;color:#fff;border:0; margin:12px 0 0 3px;display:inline;cursor: pointer;background:url(../images/bg_png.png) 5px 2px no-repeat;font-size:0; overflow:hidden}
+
+.searchboxlist{width:230px;border:1px solid #ADE2FF; border-bottom:none; position:absolute; top:32px; left:0; background:#fff; z-index:100}
+.search_title{width:210px;height:26px;line-height:26px;border-bottom:1px solid #ADE2FF;padding:0 10px; background:#F5FBFF; display:block}
+.search_title strong{font-weight:normal;color:#f60;}
+.search_title a:link{color:#000;width:175px;height:26px;display:block}
+.search_title a:visited{color:#000;width:175px;height:26px;display:block}
+.search_title a:hover{color:#000;width:175px;height:26px;display:block}
+.search_conlist1{width:230px;}
+.search_conlist1 dl{float:left;width:215px;border-bottom:1px solid #ADE2FF;list-style:none;padding:10px 5px 10px 10px;}
+.search_conlist1 dt{float:left;width:75px;}
+.search_conlist1 dt img{border:1px solid #B2B2B2;}
+.search_conlist1 dd{float:right;line-height:20px;}
+.search_conlist1 dd strong{color:#f60;font-weight:normal;}
+
+.search_conlist2{width:230px;}
+.search_conlist2 ul li{float:left;width:210px;height:30px;line-height:30px;padding:0 10px;border-bottom:1px solid #ADE2FF;overflow:hidden}
+.search_conlist2 ul li strong{color:#f60;font-weight:normal;}
+
+.search_conlist3{width:230px;}
+.search_conlist3 dl{float:left;width:215px;border-bottom:1px solid #ADE2FF;list-style:none;padding:10px 5px 10px 10px;}
+.search_conlist3 dt{float:left;width:40px;}
+.search_conlist3 dd{float:right;line-height:20px;}
+.search_conlist3 dd strong{color:#f60;font-weight:normal;}
+
+#footer{color:#343434;line-height:22px; text-align:center;}
+#footer a{ margin:0 5px;}

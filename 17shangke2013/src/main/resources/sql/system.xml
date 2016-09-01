@@ -1,0 +1,36 @@
+<sql-mappings>
+	<sql id="enum_queryList" class="entity.EnumMain">
+		SELECT NAME,LABEL,DESCRIPT,SYSTEM,STATUS,CREATE_TIME,CREATOR,VERSION,MEMO
+		FROM
+		tb_s_enum_main  
+	</sql>	
+	<sql id="enumDetail_queryList" class="entity.EnumDetail">
+		select NAME,LABEL,VALUE,MEMO,DISPLAY_NUMBER 
+		FROM tb_s_enum_detail  
+		where  name=${enumName}  ORDER  BY   DISPLAY_NUMBER  ASC
+	</sql>
+	<sql id="admin_queryList" class="entity.Admin">
+		SELECT ADMIN,STATUS,LEVEL,EMAIL,TEL,IM,INTRO,ADDRESS
+		FROM
+		tb_admin
+	</sql>	
+	
+	<sql id="role_queryList" class="entity.Role">
+		SELECT ROLE,NAME,STATUS,DESCRIPT
+		FROM
+		tb_role
+	</sql>	
+	
+	<sql id="resource_queryList" class="entity.Resource">
+		SELECT RESOURCE,NAME,VALUE,TYPE,DESCRIPT,ALLOW,FORWARD
+		FROM
+		tb_resource
+	</sql>	
+	
+	
+	<sql id="message_queryList" class="entity.Message">
+		select ID,SENDER,RECEIVER,SUBJECT,MESSAGE,SEND_TIME,READ_TIME,STATUS 
+		FROM tb_message  
+		where  receiver=${receiver}    
+	</sql>
+</sql-mappings>

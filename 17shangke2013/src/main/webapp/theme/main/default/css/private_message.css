@@ -1,0 +1,47 @@
+body, dl, dt, dd { margin:0; padding:0; }
+.private_shresults {width:100%;padding-top:30px;text-align:left;}
+.private_SRLr, .private_SRLl { padding:0 0 10px; margin:0 0 10px; _position:relative }
+.private_SRLr .face, .private_SRLl .face { display:inline; width:50px; position:relative }
+.private_SRLr .face, .private_SRLr .content { float:right; }
+.private_SRLl .face, .private_SRLl .content { float:left; }
+.private_shresults .content { word-wrap:break-word; margin:0 11px; padding:3px 10px 10px; -moz-border-radius:5px; -webkit-border-radius:5px; width:466px; position:relative }
+.private_SRLl .content { box-shadow:0 1px 3px rgba(0, 0, 0, .05); }
+.private_shresults .private_operate { }
+.private_shresults .close { text-align:right; font-size:12px }
+.private_shresults .private_operate .txt { width:396px; _width:394px; display:inline-block; zoom:1; height:auto; float:left }
+.private_shresults .private_operate .operation { vertical-align:top; line-height:22px; padding-top:5px; padding-top:3px\9; *padding-top:2px;
+_padding-top:3px; height:auto; clear:both }
+.private_shresults .fl { float:left; width:292px; *width:280px
+}
+.private_shresults .fr { float:right }
+.private_shresults .private { line-height:16px }
+.private_shresults .R_msg .hover { visibility:hidden; _visibility:visible }
+.private_shresults .R_msg:hover .hover { visibility:visible }
+.private_shresults .content img { vertical-align:middle }
+.private_shresults .content img.approve { margin-top:-4px }
+/* arrow***/
+.private_shresults .arrow { background:url("../images/private_arrow.png") no-repeat; }
+.private_SRLl .arrow { background-position:0 0; }
+.private_SRLr .arrow { background-position:-7px 0; }
+.private_shresults .arrow { width:7px; height:14px; position:absolute; top:19px; z-index:20 }
+.private_SRLr .arrow { right:-7px }
+.private_SRLl .arrow { left:-7px; }
+.private_shresults .W_linedot { font-size:0; height:0; line-height:0; margin:10px 0 20px }
+.private_shresults .content .W_linedot { height:0; line-height:0; font-size:0; margin:5px 0 }
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+a.W_close_color { cursor:pointer; width:11px; height:11px; overflow:hidden; display:inline-block; background-position:0px -11px; }
+a.W_close_color:hover { background-position:0 0; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+img { border:0; }
+em { font-style:normal; font-weight:normal; }
+/*****颜色******/
+.W_textb, a.W_textb { cursor:default; color:#999; }
+.W_linedot { border-bottom:1px dotted; }
+.W_border { border:1px solid; }
+.W_linedot, .W_border { border-color:#e1e4e5; }
+.private_SRLr .content { background:#fbfbfb; }
+.W_close_color { background-image:url("../images/close.gif"); }

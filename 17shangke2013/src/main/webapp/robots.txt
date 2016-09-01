@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /user/
+Disallow: /course/
+Disallow: /manager/
+Disallow: /passport/
+Disallow: /account/

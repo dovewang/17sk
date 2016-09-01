@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<appwidth>1000</appwidth>
+	<appheight>700</appheight>
+	<lengthrate>10</lengthrate>
+	<usecam>true</usecam><!-->是否使用摄像头</!-->
+	<test>
+		<php>false</php>
+		<state>true</state>
+	</test>
+	<board><!---->
+		<rate>10</rate>
+	</board>
+	<boardtool x="10" y="100" itemwidth="36" itemheight="36">
+		<item id="choose" label="选择白板上物品,进行修改" icon="things/icon/6.png" sicon="things/icon/6s.png" oicon="things/icon/6o.png"/>
+		<item id="lightpen" label="高亮笔" icon="things/icon/9.png" sicon="things/icon/9s.png" oicon="things/icon/9o.png"/>
+		<item id="pen" label="画笔，画不规则线条" icon="things/icon/1.png" oicon="things/icon/1o.png" sicon="things/icon/1s.png" />
+		<item id="line" label="线条，直线" icon="things/icon/2.png" sicon="things/icon/2s.png" oicon="things/icon/2o.png"/>
+		<item id="shape" label="图形" icon="things/icon/3.png" sicon="things/icon/3s.png" oicon="things/icon/3o.png"/>
+		<item id="text" label="输入文字" icon="things/icon/4.png" sicon="things/icon/4s.png" oicon="things/icon/4o.png"/>
+		<item id="3d" label="三维图形" icon="things/icon/7.png" sicon="things/icon/7s.png" oicon="things/icon/7o.png"/>
+		<item id="zb" label="坐标轴" icon="things/icon/8.png" sicon="things/icon/8s.png" oicon="things/icon/8o.png"/>
+		<item id="cleanthing" label="橡皮擦" icon="things/icon/10.png" sicon="things/icon/10s.png" oicon="things/icon/10o.png"/>
+	</boardtool>
+	<url>
+		<!--fms>rtmp://192.168.1.105/saimo/</fms-->
+		<!--fms>rtmp://tencon.gicp.net/saimo/</fms-->
+		<backpic></backpic>
+		<menubackpic>things/pic/back_1.png</menubackpic>
+		<toolbackpic>things/pic/image_02.png</toolbackpic>
+		<boardbackpic></boardbackpic>
+		<talkbackpic>things/pic/image_01.png</talkbackpic>
+		<bottombackpic>things/pic/bottomback.png</bottombackpic>
+		<rightbackpic>things/pic/back_5.png</rightbackpic>
+		<videobackpic>things/pic/videoback.png</videobackpic>
+		<playerinfoitembackpic>things/pic/playerinfoitemback.png</playerinfoitembackpic>
+		<penswf>things/swf/Pen.swf</penswf>
+		<shpae3dswf>things/swf/3D.swf</shpae3dswf>
+		<datashowswf>things/swf/datashow.swf</datashowswf>
+		<pzswf>things/swf/pz.swf</pzswf>
+		<timeswf>things/swf/time.swf</timeswf>
+	</url>
+	<site>
+		<menusite x="0" y="0" />
+		<toolsite x="0" y="105" />
+		<boardsite x="20" y="116" w="980" h="550" />
+		<talksite x="300" y="452"/>
+		<rightsite x="776" y="95"/>
+		<bottomsite x="0.5" y="666"/>
+	</site>
+	<fh>
+		<item id="1" label="特殊符号1">
+			<it>Ⅱ</it>
+			<it>∑</it>
+			<it>￥</it>
+			<it>—</it>
+			<it>［</it>
+			<it>］</it>
+		</item>
+		<item id="1" label="特殊符号2">
+			<it>＄</it>
+			<it>Ⅰ</it>
+			<it>Ⅱ</it>
+			<it>Ⅲ</it>
+			<it>］</it>
+		</item>
+		<item id="1" label="特殊符号3">
+			<it>∑</it>
+			<it>￥</it>
+			<it>—</it>
+			<it>［</it>
+			<it>］</it>
+		</item>
+	</fh>
+</data>
+
+
+

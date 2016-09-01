@@ -1,0 +1,43 @@
+/*学习圈*/
+.group-widget {
+	border-bottom: 1px solid #E0E0E0;
+	line-height: 160%;
+	zoom: 1;
+	color: #4D4D4D;
+	clear: both;
+	line-height: 22px;
+}
+.group-widget-title {
+	font-size: 12px;
+	line-height: 120%;
+	color: #4D4D4D;
+	padding-bottom: 18px;
+}
+.group-widget-notice .notice-content textarea {
+	height: 50px;
+	color: #737373;
+	line-height: 16px;
+	width: 230px;
+	border: 0 none;
+	background-color: transparent;
+	overflow: hidden;
+}
+.group-widget-notice .notice-content textarea:focus {
+	background-color: #FFF;
+}
+.group-widget.group-widget-members {
+	border-bottom: none;
+}
+.group-widget-members .members-content a {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	float: left;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	padding: 3px;
+	border: solid 1px #D8D8D8;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}

@@ -1,0 +1,26 @@
+{
+	"realName": {
+		"info": "请输入您的真实姓名，长度不超过8，中文1字符长度为2",
+		"validators": {
+		    "username":"您的名字包含非法字符",
+			"size": {
+				"max": 8,
+				"message": "您的名字太长了",
+				"chinese": true
+			}
+		}
+	},
+	"experience": {
+		"label": "一句话介绍",
+		"info": "请简单的描述您自己，最多80个字",
+		"required": "请简单的描述您自己，最多80个字",
+		"validators": {
+			"size": {
+				"chinese": false,
+				"event": true,
+				"max": 80,
+				"message": "您输入的字数超过了限制"
+			}
+		}
+	}
+}

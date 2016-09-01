@@ -1,0 +1,74 @@
+{
+	"url": {
+		"info": "请您输入视频源地址",
+		"required": "请您输入视频源地址",
+		"validators": {
+			"externalURL": "您输入的地址不符合要求"
+		}
+	},
+	"name": {
+		"info": "请您输入课程名称,最多不超过20个字符",
+		"required": "请您输入课程名称",
+		"validators": {
+			"size": {
+				"max": 20,
+			     "chinese":false,
+				"message": "课程名太长了"
+			}
+		}
+	},
+	"category": {
+		"required": "请您选择课程分类"
+	},
+	"scope": {
+		"required": "请您选择课程范围"
+	},
+	"aim": {
+		"info": "精简的描述您的目的,最多80个字",
+		"required": "请您输入课程目的,最多80个字",
+		"validators": {
+			"size": {
+				"max": 80,
+				 "chinese":false,
+				"event":true,
+				"message": "您输入的字数超过了限制"
+			}
+		}
+	},
+	"applyTime": {
+		"info": "请您输入报名时段",
+		"required": "请您输入报名时段",
+		"maxlength":30
+	},
+	"openTime": {
+		"info": "请您输入开课时段",
+		"required": "请您输入开课时段",
+		"maxlength":30
+	},
+	"price": {
+		"info": "请您输入课程价格",
+		"required": "请您输入课程价格",
+		"validators": {
+			"integer+(0)": "价格必须为整数"
+		}
+	},
+	"cover": {
+		"required": "请您上传课程封面"
+	},
+	"planStartDate": {
+		"required": "请您设置开课时间"
+	},
+	"addressId": {
+		"required": "请您选择上课地址"
+	},
+	"intro": {
+		"required": "请您输入课程简介,最多2000个字符",
+		"validators": {
+		   "notHTMLBlank": "您还没有介绍您的课程哦",
+		   "size": {
+				"max": 2000,
+				"chinese":false
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+<!--目前插件的功能较为简单，只做上传使用-->
+<div window=true>
+	<form  method="post" onsubmit="return false;" action="/upload/image.html" enctype="multipart/form-data">
+		<button class="button" node-type="upload-button" file-change="editor_uploadImage(this)" file-name="filedata">
+			浏览
+		</button>
+	</form>
+	<!--	<div class="placeholder-box" style="padding: 45px 0;">
+	您可以将您要上传的图片直接拖到该区域，或者直接拖入编辑器中
+	</div>-->
+</div>
+<script type="text/javascript">
+	function editor_uploadImage(obj) {
+		$("#editor-image-form").postForm(function(result) {
+			//url, title, width, height, border, align
+			try {
+				$("#editor-image").data("options").editor.cmd.insertimage(result.msg);
+			} catch(e) {
+                    // alert(e.message)
+			}
+			Pop.hide($("#editor-image"));
+		})
+	}
+</script>
